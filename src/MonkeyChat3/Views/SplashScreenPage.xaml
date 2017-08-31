@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:MonkeyChat3.i18n;assembly=MonkeyChat3"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource PrimaryDark}"
+             x:Name="view"
+             x:Class="MonkeyChat3.Views.SplashScreenPage">
+
+    <StackLayout HorizontalOptions="CenterAndExpand"
+                 VerticalOptions="CenterAndExpand">
+        <Image>
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android">launchscreen_icon.png</On>
+                    <On Platform="iOS">AppIcon.png</On>
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+        <ActivityIndicator Color="{StaticResource Accent}" IsRunning="true" />
+        <Label Text="{i18n:Translate LoadingText}" TextColor="{StaticResource Accent}" />
+    </StackLayout>
+
+</ContentPage>

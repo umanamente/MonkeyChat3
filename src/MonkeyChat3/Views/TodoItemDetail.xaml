@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:i18n="clr-namespace:MonkeyChat3.i18n;assembly=MonkeyChat3"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 Padding="30,80"
+                 Title="{Binding Title}"
+                 x:Class="MonkeyChat3.Views.TodoItemDetail">
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Center"
+                                   PositionOut="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8"
+                                   DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"
+                                   HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+
+    <StackLayout Padding="20"
+                 BackgroundColor="White">
+        <Label Text="{i18n:Translate DescriptionLabel}" />
+        <Entry Text="{Binding Model.Name}" />
+        <Label Text="{i18n:Translate IsDoneLabel}" />
+        <Switch IsToggled="{Binding Model.Done}" />
+        <Button Text="{i18n:Translate SaveButton}" 
+                Command="{Binding SaveCommand}" />
+    </StackLayout>
+
+</pages:PopupPage>
